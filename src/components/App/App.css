@@ -1,0 +1,240 @@
+.logo {
+  padding: 10px;
+}
+
+main {
+  font-family: Montserrat;
+  margin: 0px auto 50px auto;
+  /*text-align: center;*/
+}
+
+#pageHeader {
+  background-image: url('https://s3.amazonaws.com/codecademy-content/courses/intermediate-javascript-requests/wanderlust/background_photo_desktop.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+h1 {
+  padding-top: 150px;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 1.1px;
+  text-align: center;
+  color: #ffffff;
+  margin: auto;
+}
+
+h4 {
+  font-weight: 500;
+  line-height: 1.29;
+  color: #27c19e;
+  padding-left: 5px
+}
+
+p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.36;
+  text-align: left;
+  color: #4a4a4a;
+  padding-left: 5px;
+}
+
+form {
+  margin-top: 50px;
+  height: 100px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.weather h2 {
+  position: relative;
+  padding: 5px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  /*visibility: hidden;*/
+  clear: both;
+}
+
+.weather h2 {
+  font-family: Montserrat;
+  font-size: 18px;
+  line-height: 0.78;
+  text-align: left;
+  color: #4a4a4a;
+}
+
+.weather {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  width: 25%;
+  height: 260px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-right: none;
+}
+
+.weather:last-child {
+  border-right: 1px solid #ddd;
+}
+
+.weathericon {
+  width: 150px;
+  height: 150px;
+}
+
+.venue {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  width: 25%;
+  height: 260px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-right: none;
+}
+
+.venue:nth-child(4n+4), .venue:last-child {
+  border-right: 1px solid #ddd;
+}
+
+.venueimage {
+  margin-top: 20px;
+}
+
+#venues h2 {
+  font-family: Work Sans;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 0.77;
+  text-align: center;
+  padding-top: 5px;
+}
+
+#destination {
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  text-align: left;
+  color: #27b7c1;
+}
+
+.sectiontitle {
+  height: 70px;
+  width: 300px;
+  align-items: center;
+}
+
+.sectiontitle h2 {
+  font-family: Montserrat;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 3.4px;
+  text-align: left;
+  color: #4a4a4a;
+}
+
+#venues {
+  width: 100%;
+  min-height: 250px;
+}
+
+#weather {
+  /*display: inline-block;*/
+  width: 100%;
+  min-height: 350px;
+}
+
+#city {
+  width: 286px;
+  height: 46px;
+  padding: 0 5px;
+  border-radius: 4px;
+  border: solid 1.5px #ffffff;
+  background-color: inherit;
+  opacity: 0.73;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #ffffff;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff;
+}
+
+#button {
+  width: 140px;
+  height: 46px;
+  padding: 0 5px;
+  border-radius: 4px;
+  border: solid 1.5px #ffffff;
+  background-color: #27b7c1;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #ffffff;
+}
+
+@media (max-width: 860px) {
+  main {
+    background-image: url('https://s3.amazonaws.com/codecademy-content/courses/intermediate-javascript-requests/wanderlust/background_photo_moble.jpg');
+  }
+
+  h1 {
+    padding-top: 80px;
+    font-size: 32px;
+  }
+
+  form {
+    margin-top: 30px;
+    padding-bottom: 10px;
+  }
+
+  #venues, #weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .venue, .weather {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+  }
+
+  .weather {
+    padding: 10px 20px;
+    height: 100%;
+  }
+
+  .sectiontitle, .sectiontitle h2, #destination {
+    margin: auto;
+    text-align: center;
+  }
+}
+
