@@ -1,15 +1,15 @@
 import React from 'react';
-import './FsResults.css';
+import './ResultsFsPho.css';
 
-function FsResults(props){
-	let imageSource = props.venue.icon.prefix + "bg_64" + props.venue.icon.suffix;
+function ResultsFsPho(props){
+	let imageSource = props.photo.prefix + props.photo.width + "x" + props.photo.height + props.photo.suffix;
+	console.log("In ResultsFsPho: " + imageSource);
         return (
-            <div className="venue">
-              <h3>{props.venue.name}</h3>
-              <img src={imageSource} />
-              <h4>{props.venue.address},<br />{props.venue.city},<br />{props.venue.country}</h4>
+            <div className="photo">
+            <h4>{props.photo.venue}</h4>
+              <img src={imageSource} alt="" className="venuePhoto" />
             </div>
         );
 };
 
-export default FsResults;
+export default ResultsFsPho;

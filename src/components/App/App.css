@@ -51,6 +51,10 @@ footer {
   height: 50px;
 }
 
+.SearchBar {
+  padding:20px 0 150px 0;
+}
+
 .weather h2 {
   position: relative;
   padding: 5px;
@@ -117,6 +121,10 @@ footer {
   line-height: 0.77;
   text-align: center;
   padding-top: 5px;
+}
+
+.venuePhoto {
+  width: 200px;
 }
 
 #destination {

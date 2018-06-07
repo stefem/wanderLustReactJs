@@ -7,6 +7,7 @@ import ApixuSearchResults from '../Apixu/ApixuSearchResults';
 
 import Foursquare from '../../util/api/Foursquare';
 import SearchResultsFsVen from '../Foursquare/Venues/SearchResultsFsVen';
+// import SearchResultsFsPho from '../Foursquare/Photos/SearchResultsFsPho';
 
 
 class App extends Component {
@@ -19,7 +20,8 @@ class App extends Component {
       ],
       venues : [
 
-      ]
+      ],
+     
     }
 
     this.search = this.search.bind(this);
@@ -32,16 +34,20 @@ class App extends Component {
 
     });
 
+    console.log(Foursquare.getVenues(term));
+
     Foursquare.getVenues(term).then(foursquareResponse => { // getVenues
-       this.setState({venues: foursquareResponse});
+      console.log("FSResp: " + foursquareResponse.venues);
+      // this.setState({venues: foursquareResponse});
 
-       foursquareResponse.forEach((venueId, index) => { // forEach
-        Foursquare.getVenuePhotos(foursquareResponse[index].id).then(foursquarePhotosRes => { // getVenuePhotos
+       //foursquareResponse.forEach((venueId, index) => { // forEach
+        //Foursquare.getVenuePhotos(foursquareResponse[index].id).then(foursquarePhotosRes => { // getVenuePhotos
 
-          this.setState({photos: foursquarePhotosRes});
+          // need to find the state with the correct id
+          // this.setState({venues.photos: foursquarePhotosRes});
 
-        }); // end getVenuePhotos
-       }); // end forEach
+        //}); // end getVenuePhotos
+       //}); // end forEach
 
        
     });   // end getVenues 
@@ -56,7 +62,7 @@ class App extends Component {
           <SearchBar onSearch={this.search} />
         </div>
         <ApixuSearchResults forecasts = {this.state.forecast} />
-        <SearchResultsFsVen venues = {this.state.venues} />
+        <SearchResultsFsVen venues = {this.state.venues} photos = {this.state.photos} />
       </div>
     );
   }

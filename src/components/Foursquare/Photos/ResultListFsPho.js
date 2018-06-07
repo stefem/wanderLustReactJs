@@ -1,16 +1,17 @@
 import React from 'react';
-import './FsResultList.css';
-import FsResults from './FsResults';
+import './ResultListFsPho.css';
+import ResultsFsPho from './ResultsFsPho';
 
-function FsResultList (props) {
+function ResultListFsPho (props) {
+  console.log("In ResultListPho: " + props.photos);
     return (
         <span>
           {
-              props.venues.map( venue => {
+              props.photos.map( photo => {
 
-              return <FsResults
-                      venue={venue}
-                      key={venue.id}
+              return <ResultsFsPho
+                      photo={photo}
+                      key={photo.id}
                       />
               })
           }
@@ -18,4 +19,4 @@ function FsResultList (props) {
     );
 };
 
-export default FsResultList;
+export default ResultListFsPho;

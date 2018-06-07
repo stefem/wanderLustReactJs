@@ -7,7 +7,7 @@ function ApixuResults(props){
         return (
         	<div className="weather">
         		<h2>{weekDays[(new Date(props.forecast.date)).getDay()]}</h2>
-        	  	<img src={props.forecast.icon} />
+        	  	<img src={props.forecast.icon} alt="forecast icon" />
                 <h4>Max (f): {props.forecast.maxtemp}</h4>
                 <h4>Min (f): {props.forecast.mintemp}</h4>
             </div>

@@ -1,20 +1,20 @@
 import React from 'react';
-import './FsSearchResults.css';
-import FsResultList from './FsResultList';
+import './SearchResultsFsPho.css';
+import ResultListFsPho from './ResultListFsPho';
 
-function FsSearchResults(props) {
-	
+function SearchResultsFsPho(props) {
+	console.log("In SearchResultsFsPho: " + props.photos);
       return (
           <div className="container">
 		    <div className="sectiontitle">
-		      <h2>Attractions
+		      <h2>Photos
 		      </h2>
 		    </div>
-		    <section id="venues">
-            	<FsResultList venues={props.venues} />
+		    <section id="photos">
+            	<ResultListFsPho photos={props.photos} />
             </section>
           </div>
       );
 };
 
-export default FsSearchResults;
+export default SearchResultsFsPho;
