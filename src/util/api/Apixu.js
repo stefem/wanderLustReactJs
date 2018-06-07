@@ -1,5 +1,5 @@
 // APIXU Info
-const apiKey = 'xxx';
+const apiKey = '673af9cb357f46a39d7112717180305';
 const forecastUrl = 'https://api.apixu.com/v1/forecast.json?key=';
 
 const Apixu = {

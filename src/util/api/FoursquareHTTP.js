@@ -1,6 +1,6 @@
 // Foursquare API Info
-const clientId = 'xxx';
-const clientSecret = 'xxx';
+const clientId = '32YE3QQ3KQGZLR2MDMJLOEVAZCQHP4MHEPAKMKJTPXZUH5PJ ';
+const clientSecret = 'I23Q2HZNXYKI3FLRFIRJLEDM4LG4EUEI3F31X1UNUYXF3LRX';
 const urlExplore = 'https://api.foursquare.com/v2/venues/explore?near=';
 const urlPhotos = 'https://api.foursquare.com/v2/venues/'
 
