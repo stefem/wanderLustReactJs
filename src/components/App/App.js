@@ -36,17 +36,18 @@ class App extends Component {
 
     });
 
-    // console.log(FoursquareHTTP.getVenues(term));
-
-    Foursquare.getVenues(term).then(foursquareResponse => { // getVenues
+    FoursquareHTTP.getVenues(term).then(foursquareResponse => { // getVenues
       console.log("FSResp: " + foursquareResponse[0].id);
 
       foursquareResponse.forEach((venue) => {
         console.log("FSResp venue: " + venue.id);
         let venueId = venue.id;
-        Foursquare.getVenuePhotos(venueId);
+        FoursquareHTTP.getVenuePhotos(venueId).then(foursquarePhotosRes => {
+          console.log("foursquarePhotosRes: " + foursquarePhotosRes);
+        });
       })
 
+      this.setState({venues: foursquareResponse});
       
     });   // end getVenues 
    
