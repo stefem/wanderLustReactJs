@@ -1,13 +1,16 @@
 // Foursquare API Info
+
+// best way (thus far) to do nested API calls is seems to be to separate the different calls into methods within the containing object then do any nesting back in the receiving component (in this case, it's done in the search method in App.js)
+
+
 const clientId = 'xxx';
 const clientSecret = 'xxx';
 const urlExplore = 'https://api.foursquare.com/v2/venues/explore?near=';
 const urlPhotos = 'https://api.foursquare.com/v2/venues/'
 
-
 const Foursquare = {
     getVenues: (searchTerm) => {
-        const fetchVenuesURL = `${urlExplore}${searchTerm}&limit=10&client_id=${clientId}&client_secret=${clientSecret}&v=20180602`;
+        const fetchVenuesURL = `${urlExplore}${searchTerm}&limit=4&client_id=${clientId}&client_secret=${clientSecret}&v=20180602`;
         return fetch(fetchVenuesURL).then( response => {
              return response.json();
         }).then( jsonResponse => {
@@ -15,8 +18,6 @@ const Foursquare = {
 
                 return jsonResponse.response.groups[0].items.map(item => (
                                 
-                            // maybe it all needs to get nested in here? 
-                            // nest anpother map here - build once all mapped?
                             {
                                 id: item.venue.id,
                                 name: item.venue.name,
@@ -51,6 +52,28 @@ const Foursquare = {
             }
         }).then(jsonResponse => {
             console.log("jsonResponse.response.photos.items[1]" + Object.keys(jsonResponse.response));
+            return "photo response from API";
+            // this currently works but just returns the string above - code below (with correct routes to information should return what is needed)
+
+            // if (jsonResponse.response.etc) {
+
+            //     return jsonResponse.map(item => (
+
+            //     {
+            //         id : item.id,
+            //         created: item.createdAt,
+            //         prefix: item.prefix,
+            //         suffix: item.suffix,
+            //         width: item.width,
+            //         height: item.height,
+            //         venue: item.venue
+            //     }
+     
+            //     )
+
+            // } else {
+            //     return [];
+            // } // end if/else
         })
     }
     
