@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// components and API callers
 import SearchBar from '../SearchBar/SearchBar';
-import Apixu from '../../util/api/Apixu';
-import ApixuSearchResults from '../Apixu/ApixuSearchResults';
+import APIWeather from '../../apicalls/APIWeather';
+import ResultsWeather from '../Weather/ResultsWeather';
+import APIVenues from '../../apicalls/APIVenues';
+import ResultsVenues from '../Venues/ResultsVenues';
 
-// import Foursquare from '../../util/api/Foursquare';
-import FoursquareHTTP from '../../util/api/FoursquareHTTP';
-import SearchResultsFsVen from '../Foursquare/Venues/SearchResultsFsVen';
-// import SearchResultsFsPho from '../Foursquare/Photos/SearchResultsFsPho';
-
-const venuesArray = [];
+import TestVenues from '../Venues/TestVenues';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      forecast : [
+      weather : [
 
       ],
       venues : [
@@ -31,24 +29,28 @@ class App extends Component {
 
   search(term){ // search
 
-    Apixu.getForecast(term).then(apixuResponse => {
-       this.setState({forecast: apixuResponse});
-
+    APIWeather.getForecast(term).then(weatherRes => {
+       this.setState({weather: weatherRes});
     });
 
-    FoursquareHTTP.getVenues(term).then(foursquareResponse => { // getVenues
-      console.log("FSResp: " + foursquareResponse[0].id);
+    APIVenues.getVenues(term).then(venuesResponse => { // getVenues
+      this.setState({venues: venuesResponse});
+      let photos = [];
 
-      foursquareResponse.forEach((venue) => {
-        console.log("FSResp venue: " + venue.id);
-        let venueId = venue.id;
-        FoursquareHTTP.getVenuePhotos(venueId).then(foursquarePhotosRes => {
-          console.log("foursquarePhotosRes: " + foursquarePhotosRes);
+      this.state.venues.forEach((venue, index) => {
+
+        this.setState({
+          venues: {
+            ...this.state.venues,
+            [index]: { 
+              ...this.state.venues[index],
+              photos: APIVenues.getVenuePhotos(this.state.venues[index].id) // now putting value in right place
+            }  
+          }
         });
+
       })
 
-      this.setState({venues: foursquareResponse});
-      
     });   // end getVenues 
    
   } // end search
@@ -59,9 +61,9 @@ class App extends Component {
         <div id="pageHeader">
           <h1>Where do you want to land?</h1>
           <SearchBar onSearch={this.search} />
+          <TestVenues venues = {this.state.venues} />
         </div>
-        <ApixuSearchResults forecasts = {this.state.forecast} />
-        <SearchResultsFsVen venues = {this.state.venues} photos = {this.state.venues.photos} />
+
       </div>
     );
   }
